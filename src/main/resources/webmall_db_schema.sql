@@ -957,8 +957,8 @@ LOCK TABLES `webmall_user` WRITE;
 
 INSERT INTO `webmall_user` (`user_id`, `nick_name`, `login_name`, `password_md5`, `introduce_sign`, `is_deleted`, `locked_flag`, `create_time`)
 VALUES
-(1,'WebMall','13700002703','e10adc3949ba59abbe56e057f20f883e','我不怕千万人阻挡，只怕自己投降',0,0,'2020-05-22 08:44:57'),
-(6,'陈尼克','13711113333','e10adc3949ba59abbe56e057f20f883e','测试用户陈尼克',0,0,'2020-05-22 08:44:57');
+(1,'WebMall','13700002703','e10adc3949ba59abbe56e057f20f883e','WebMall',0,0,'2020-11-11 20:18:42'),
+(6,'hlt','13711113333','e10adc3949ba59abbe56e057f20f883e','测试用户hlt',0,0,'2020-11-11 20:26:15');
 
 /*!40000 ALTER TABLE `webmall_user` ENABLE KEYS */;
 UNLOCK TABLES;
