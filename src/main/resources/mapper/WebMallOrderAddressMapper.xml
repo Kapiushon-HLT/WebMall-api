@@ -17,15 +17,15 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_newbee_mall_order_address
+    from webmall_order_address
     where order_id = #{orderId,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from tb_newbee_mall_order_address
+    delete from webmall_order_address
     where order_id = #{orderId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="top.aruoxi.webmall.entity.WebMallOrderAddress">
-    insert into tb_newbee_mall_order_address (order_id, user_name, user_phone, 
+    insert into webmall_order_address (order_id, user_name, user_phone,
       province_name, city_name, region_name, 
       detail_address)
     values (#{orderId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, 
@@ -33,7 +33,7 @@
       #{detailAddress,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="top.aruoxi.webmall.entity.WebMallOrderAddress">
-    insert into tb_newbee_mall_order_address
+    insert into webmall_order_address
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderId != null">
         order_id,
@@ -82,7 +82,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="top.aruoxi.webmall.entity.WebMallOrderAddress">
-    update tb_newbee_mall_order_address
+    update webmall_order_address
     <set>
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
@@ -106,7 +106,7 @@
     where order_id = #{orderId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="top.aruoxi.webmall.entity.WebMallOrderAddress">
-    update tb_newbee_mall_order_address
+    update webmall_order_address
     set user_name = #{userName,jdbcType=VARCHAR},
       user_phone = #{userPhone,jdbcType=VARCHAR},
       province_name = #{provinceName,jdbcType=VARCHAR},

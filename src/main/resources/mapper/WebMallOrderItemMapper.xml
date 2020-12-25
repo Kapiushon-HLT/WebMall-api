@@ -19,19 +19,19 @@
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from tb_newbee_mall_order_item
+        from webmall_order_item
         where order_item_id = #{orderItemId,jdbcType=BIGINT}
     </select>
     <select id="selectByOrderId" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from tb_newbee_mall_order_item
+        from webmall_order_item
         where order_id = #{orderItemId,jdbcType=BIGINT}
     </select>
     <select id="selectByOrderIds" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from tb_newbee_mall_order_item
+        from webmall_order_item
         where order_id
         in
         <foreach item="id" collection="orderIds" open="(" separator="," close=")">
@@ -39,11 +39,11 @@
         </foreach>
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from tb_newbee_mall_order_item
+    delete from webmall_order_item
     where order_item_id = #{orderItemId,jdbcType=BIGINT}
   </delete>
     <insert id="insertBatch" parameterType="top.aruoxi.webmall.entity.WebMallOrderItem">
-        insert into tb_newbee_mall_order_item (order_id, goods_id,
+        insert into webmall_order_item (order_id, goods_id,
         goods_name, goods_cover_img, selling_price,
         goods_count)
         values
@@ -55,7 +55,7 @@
         </foreach>
     </insert>
     <insert id="insert" parameterType="top.aruoxi.webmall.entity.WebMallOrderItem">
-    insert into tb_newbee_mall_order_item (order_item_id, order_id, goods_id,
+    insert into webmall_order_item (order_item_id, order_id, goods_id,
       goods_name, goods_cover_img, selling_price,
       goods_count, create_time)
     values (#{orderItemId,jdbcType=BIGINT}, #{orderId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT},
@@ -63,7 +63,7 @@
       #{goodsCount,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
     <insert id="insertSelective" parameterType="top.aruoxi.webmall.entity.WebMallOrderItem">
-        insert into tb_newbee_mall_order_item
+        insert into webmall_order_item
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="orderItemId != null">
                 order_item_id,
@@ -118,7 +118,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="top.aruoxi.webmall.entity.WebMallOrderItem">
-        update tb_newbee_mall_order_item
+        update webmall_order_item
         <set>
             <if test="orderId != null">
                 order_id = #{orderId,jdbcType=BIGINT},
@@ -145,7 +145,7 @@
         where order_item_id = #{orderItemId,jdbcType=BIGINT}
     </update>
     <update id="updateByPrimaryKey" parameterType="top.aruoxi.webmall.entity.WebMallOrderItem">
-    update tb_newbee_mall_order_item
+    update webmall_order_item
     set order_id = #{orderId,jdbcType=BIGINT},
       goods_id = #{goodsId,jdbcType=BIGINT},
       goods_name = #{goodsName,jdbcType=VARCHAR},

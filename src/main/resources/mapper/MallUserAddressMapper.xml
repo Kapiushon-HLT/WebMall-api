@@ -23,29 +23,29 @@
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from tb_newbee_mall_user_address
+        from webmall_user_address
         where address_id = #{addressId,jdbcType=BIGINT} and is_deleted = 0
     </select>
     <select id="getMyDefaultAddress" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from tb_newbee_mall_user_address
+        from webmall_user_address
         where user_id = #{userId} and default_flag =1 and is_deleted = 0 limit 1
     </select>
     <select id="findMyAddressList" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from tb_newbee_mall_user_address
+        from webmall_user_address
         where user_id = #{userId} and is_deleted = 0
         order by address_id desc
         limit 20 <!-- 最多返回20条 -->
     </select>
     <update id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    update tb_newbee_mall_user_address set is_deleted = 1
+    update webmall_user_address set is_deleted = 1
     where address_id = #{addressId,jdbcType=BIGINT}
   </update>
     <insert id="insert" parameterType="top.aruoxi.webmall.entity.MallUserAddress">
-    insert into tb_newbee_mall_user_address (address_id, user_id, user_name, 
+    insert into webmall_user_address (address_id, user_id, user_name,
       user_phone, default_flag, province_name, 
       city_name, region_name, detail_address, 
       is_deleted, create_time, update_time
@@ -57,7 +57,7 @@
       )
   </insert>
     <insert id="insertSelective" parameterType="top.aruoxi.webmall.entity.MallUserAddress">
-        insert into tb_newbee_mall_user_address
+        insert into webmall_user_address
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="addressId != null">
                 address_id,
@@ -136,7 +136,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="top.aruoxi.webmall.entity.MallUserAddress">
-        update tb_newbee_mall_user_address
+        update webmall_user_address
         <set>
             <if test="userId != null">
                 user_id = #{userId,jdbcType=BIGINT},
@@ -175,7 +175,7 @@
         where address_id = #{addressId,jdbcType=BIGINT}
     </update>
     <update id="updateByPrimaryKey" parameterType="top.aruoxi.webmall.entity.MallUserAddress">
-    update tb_newbee_mall_user_address
+    update webmall_user_address
     set user_id = #{userId,jdbcType=BIGINT},
       user_name = #{userName,jdbcType=VARCHAR},
       user_phone = #{userPhone,jdbcType=VARCHAR},

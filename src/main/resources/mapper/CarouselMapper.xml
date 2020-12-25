@@ -20,7 +20,7 @@
     <select id="findCarouselList" parameterType="Map" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from tb_newbee_mall_carousel
+        from webmall_carousel
         where is_deleted = 0
         order by carousel_rank desc
         <if test="start!=null and limit!=null">
@@ -28,29 +28,29 @@
         </if>
     </select>
     <select id="getTotalCarousels" parameterType="Map" resultType="int">
-        select count(*) from tb_newbee_mall_carousel
+        select count(*) from webmall_carousel
         where is_deleted = 0
     </select>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from tb_newbee_mall_carousel
+        from webmall_carousel
         where carousel_id = #{carouselId,jdbcType=INTEGER}
     </select>
     <select id="findCarouselsByNum" parameterType="int" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from tb_newbee_mall_carousel
+        from webmall_carousel
         where is_deleted = 0
         order by carousel_rank desc
         limit #{number}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_newbee_mall_carousel
+    delete from webmall_carousel
     where carousel_id = #{carouselId,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="top.aruoxi.webmall.entity.Carousel">
-    insert into tb_newbee_mall_carousel (carousel_id, carousel_url, redirect_url, 
+    insert into webmall_carousel (carousel_id, carousel_url, redirect_url,
       carousel_rank, is_deleted, create_time, 
       create_user, update_time, update_user
       )
@@ -60,7 +60,7 @@
       )
   </insert>
     <insert id="insertSelective" parameterType="top.aruoxi.webmall.entity.Carousel">
-        insert into tb_newbee_mall_carousel
+        insert into webmall_carousel
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="carouselId != null">
                 carousel_id,
@@ -121,7 +121,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="top.aruoxi.webmall.entity.Carousel">
-        update tb_newbee_mall_carousel
+        update webmall_carousel
         <set>
             <if test="carouselUrl != null">
                 carousel_url = #{carouselUrl,jdbcType=VARCHAR},
@@ -151,7 +151,7 @@
         where carousel_id = #{carouselId,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="top.aruoxi.webmall.entity.Carousel">
-    update tb_newbee_mall_carousel
+    update webmall_carousel
     set carousel_url = #{carouselUrl,jdbcType=VARCHAR},
       redirect_url = #{redirectUrl,jdbcType=VARCHAR},
       carousel_rank = #{carouselRank,jdbcType=INTEGER},
@@ -163,7 +163,7 @@
     where carousel_id = #{carouselId,jdbcType=INTEGER}
   </update>
     <update id="deleteBatch">
-        update tb_newbee_mall_carousel
+        update webmall_carousel
         set is_deleted=1,update_time=now() where carousel_id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
