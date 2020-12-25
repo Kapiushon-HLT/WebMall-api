@@ -22,6 +22,136 @@ WebMall 商城 Vue 版本线上预览地址[WebMall](https://webmall.aruoxi.top)
 - [swagger](https://github.com/swagger-api) (生成[在线接口文档](http://47.94.235.82:28019/swagger-ui.html))
 - [Lombok](https://github.com/rzwitserloot)
 
+## 后端项目结构图
+```code
+├─.gitattributes 
+├─.gitignore  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // Git忽略文件
+├─LICENSE 
+├─pom.xml 
+├─README.md  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // README文件
+├─src  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 主目录
+│ └─main 
+│   ├─java 
+│   │ └─top 
+│   │   └─aruoxi 
+│   │     └─webmall 
+│   │       ├─api  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // api接口模块
+│   │       │ ├─param  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 参数模块
+│   │       │ │ ├─MallUserLoginParam.java  - - - - - - - - - - - - - - - - - - - - - - - // 用户登录参数
+│   │       │ │ ├─MallUserRegisterParam.java  - - - - - - - - - - - - - - - - - - - - // 用户注册参数
+│   │       │ │ ├─MallUserUpdateParam.java  - - - - - - - - - - - - - - - - - - - - - - // 用户信息更新参数
+│   │       │ │ ├─SaveCartItemParam.java  - - - - - - - - - - - - - - - - - - - - - - - - // 添加商品至购物车参数
+│   │       │ │ ├─SaveMallUserAddressParam.java  - - - - - - - - - - - - - - - - - // 新增地址参数
+│   │       │ │ ├─SaveOrderParam.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - // 创建订单参数
+│   │       │ │ ├─UpdateCartItemParam.java  - - - - - - - - - - - - - - - - - - - - - - // 更新购物车参数
+│   │       │ │ └─UpdateMallUserAddressParam.java  - - - - - - - - - - - - - - - // 更新地址参数
+│   │       │ ├─vo  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // vo模块
+│   │       │ │ ├─IndexInfoVO.java 
+│   │       │ │ ├─SearchPageCategoryVO.java 
+│   │       │ │ ├─SecondLevelCategoryVO.java 
+│   │       │ │ ├─ThirdLevelCategoryVO.java 
+│   │       │ │ ├─WebMallIndexCarouselVO.java 
+│   │       │ │ ├─WebMallIndexCategoryVO.java 
+│   │       │ │ ├─WebMallIndexConfigGoodsVO.java 
+│   │       │ │ ├─WebMallMallGoodsDetailVO.java 
+│   │       │ │ ├─WebMallOrderDetailVO.java 
+│   │       │ │ ├─WebMallOrderItemVO.java 
+│   │       │ │ ├─WebMallOrderListVO.java 
+│   │       │ │ ├─WebMallSearchGoodsVO.java 
+│   │       │ │ ├─WebMallShoppingCartItemVO.java 
+│   │       │ │ ├─WebMallUserAddressVO.java 
+│   │       │ │ └─WebMallUserVO.java 
+│   │       │ ├─WebMallGoodsAPI.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 商品相关API
+│   │       │ ├─WebMallGoodsCategoryAPI.java  - - - - - - - - - - - - - - - - - - - - // 商品分类相关API
+│   │       │ ├─WebMallIndexAPI.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 首页数据相关API
+│   │       │ ├─WebMallOrderAPI.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 订单相关API
+│   │       │ ├─WebMallPersonalAPI.java  - - - - - - - - - - - - - - - - - - - - - - - - - // 个人信息相关API
+│   │       │ ├─WebMallShoppingCartAPI.java  - - - - - - - - - - - - - - - - - - - - - // 购物车相关API
+│   │       │ └─WebMallUserAddressAPI.java  - - - - - - - - - - - - - - - - - - - - - - // 地址信息相关API
+│   │       ├─common  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 常用模块
+│   │       │ ├─Constants.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 首页内容
+│   │       │ ├─IndexConfigTypeEnum.java  - - - - - - - - - - - - - - - - - - - - - - - - // 首页商品类型(热门商品，新品上市等)
+│   │       │ ├─PayStatusEnum.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 支付状态
+│   │       │ ├─PayTypeEnum.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 支付方式(微信、支付宝等)
+│   │       │ ├─ServiceResultEnum.java  - - - - - - - - - - - - - - - - - - - - - - - - - - // 操作结果(登录失败、商品不存在、购物车数据异常等信息)
+│   │       │ ├─WebMallCategoryLevelEnum.java 
+│   │       │ ├─WebMallException.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - // 抛出异常
+│   │       │ └─WebMallOrderStatusEnum.java  - - - - - - - - - - - - - - - - - - - - - // 订单状态
+│   │       ├─config 
+│   │       │ ├─annotation 
+│   │       │ │ └─TokenToMallUser.java  - - - - - - - - - - - - - - - - - - - - - - - - - - // token用户名字
+│   │       │ ├─handler 
+│   │       │ │ └─TokenToMallUserMethodArgumentResolver.java  - - - - // token方法
+│   │       │ ├─Swagger2Config.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // Swagger2参数设置(用于生成本项目在线接口文档)
+│   │       │ ├─WebMallExceptionHandler.java  - - - - - - - - - - - - - - - - - - - - // 全局异常处理
+│   │       │ └─WebMallWebMvcConfigurer.java  - - - - - - - - - - - - - - - - - - - - // 跨域配置
+│   │       ├─dao  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // dao层
+│   │       ├─entity  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 实体层
+│   │       │ ├─Carousel.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 轮播图
+│   │       │ ├─GoodsCategory.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 商品分类
+│   │       │ ├─IndexConfig.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 首页参数设置
+│   │       │ ├─MallUser.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 用户
+│   │       │ ├─MallUserAddress.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 用户收货地址
+│   │       │ ├─MallUserToken.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 用户token
+│   │       │ ├─StockNumDTO.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 商品库存
+│   │       │ ├─WebMallGoods.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 商品
+│   │       │ ├─WebMallOrder.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 订单
+│   │       │ ├─WebMallOrderAddress.java  - - - - - - - - - - - - - - - - - - - - - - - - // 订单收货地址
+│   │       │ ├─WebMallOrderItem.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - // 订单个体
+│   │       │ └─WebMallShoppingCartItem.java  - - - - - - - - - - - - - - - - - - - - // 购物车商品
+│   │       ├─service  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 服务层
+│   │       │ ├─impl  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 实现
+│   │       │ │ ├─WebMallCarouselServiceImpl.java 
+│   │       │ │ ├─WebMallCategoryServiceImpl.java 
+│   │       │ │ ├─WebMallGoodsServiceImpl.java 
+│   │       │ │ ├─WebMallIndexConfigServiceImpl.java 
+│   │       │ │ ├─WebMallOrderServiceImpl.java 
+│   │       │ │ ├─WebMallShoppingCartServiceImpl.java 
+│   │       │ │ ├─WebMallUserAddressServiceImpl.java 
+│   │       │ │ └─WebMallUserServiceImpl.java 
+│   │       │ ├─WebMallCarouselService.java  - - - - - - - - - - - - - - - - - - - - - // 提供轮播图
+│   │       │ ├─WebMallCategoryService.java  - - - - - - - - - - - - - - - - - - - - - // 提供商品分类
+│   │       │ ├─WebMallGoodsService.java  - - - - - - - - - - - - - - - - - - - - - - - - // 获取商品详情及商品搜索
+│   │       │ ├─WebMallIndexConfigService.java  - - - - - - - - - - - - - - - - - - // 返回固定数量的首页配置商品对象(首页调用)
+│   │       │ ├─WebMallOrderService.java  - - - - - - - - - - - - - - - - - - - - - - - - // 获取及操作商品订单
+│   │       │ ├─WebMallShoppingCartService.java  - - - - - - - - - - - - - - - - - // 获取及操作购物车
+│   │       │ ├─WebMallUserAddressService.java  - - - - - - - - - - - - - - - - - - // 获取及操作收货地址
+│   │       │ └─WebMallUserService.java  - - - - - - - - - - - - - - - - - - - - - - - - - // 登录、注册、登出、修改用户信息
+│   │       ├─util  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 工具模块
+│   │       │ ├─BeanUtil.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // Bean工具
+│   │       │ ├─MD5Util.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // MD5加密
+│   │       │ ├─NumberUtil.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // Number工具
+│   │       │ ├─PageQueryUtil.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 分页查找
+│   │       │ ├─PageResult.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 分页结果
+│   │       │ ├─Result.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 返回结果
+│   │       │ ├─ResultGenerator.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 生成返回结果类型
+│   │       │ ├─SystemUtil.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 登录、注册后对token的操作
+│   │       │ └─WebMallUtils.java  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 替换字符串
+│   │       └─WebMallAPIApplication.java  - - - - - - - - - - - - - - - - - - - - - - - - // 主线程类
+│   └─resources  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 资源文件目录
+│     ├─application.properties  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 项目设置(项目端口、数据库参数配置等)
+│     ├─mapper  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // mapper层
+│     │ ├─CarouselMapper.xml 
+│     │ ├─GoodsCategoryMapper.xml 
+│     │ ├─IndexConfigMapper.xml 
+│     │ ├─MallUserAddressMapper.xml 
+│     │ ├─MallUserMapper.xml 
+│     │ ├─WebMallGoodsMapper.xml 
+│     │ ├─WebMallOrderAddressMapper.xml 
+│     │ ├─WebMallOrderItemMapper.xml 
+│     │ ├─WebMallOrderMapper.xml 
+│     │ ├─WebMallShoppingCartItemMapper.xml 
+│     │ └─WebMallUserTokenMapper.xml 
+│     ├─upload.zip 
+│     └─webmall_db_schema.sql  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - // 项目数据库初始化sql脚本
+└─webmall-api.iml 
+```
+
+## 接口文档
+
+__!! 详情请看->__[在线接口文档](http://47.94.235.82:28019/swagger-ui.html)
+![后端接口部分图(Swagger生成)](http://img.aruoxi.top/webmall-vue/WebMall-api-swagger.png)
+
 ## 页面展示
 
 以下为WebMall商城 Vue 版本的页面预览：
